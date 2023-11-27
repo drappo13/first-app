@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 OPEN_AI_API_KEY = st.secrets["OPEN_AI_API_KEY"]
 SPOTIFY_CLIENT_ID = st.secrets["SPOTIFY_CLIENT_ID"]
 SPOTIFY_CLIENT_SECRET = st.secrets["SPOTIFY_CLIENT_SECRET"]
+SPOTIFY_REDIRECT_URI = st.secrets["SPOTIFY_REDIRECT_URI"]
 
 # Initial setup: Logo and title
 def setup_page():
@@ -294,7 +295,7 @@ def main():
     setup_page()
 
     # Define redirect_uri at the top of your main function
-    redirect_uri = "http://localhost:8501"
+    redirect_uri = SPOTIFY_REDIRECT_URI
 
     # Initialize session state variables
     if 'auth_code' not in st.session_state:
